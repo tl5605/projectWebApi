@@ -1,11 +1,11 @@
 ﻿let minPrice = 0;
 let maxPrice = 1000000;
 let categoryIds = '';
-let description = "";
+let productName = "";
 
 
 const getAllProducts = async () => {
-    const response = await fetch(`api/products?minPrice=${minPrice}&maxPrice=${maxPrice}${categoryIds}&description=${description}`);
+    const response = await fetch(`api/products?minPrice=${minPrice}&maxPrice=${maxPrice}${categoryIds}&productName=${productName}`);
 
     if (response.ok) {
         const products = await response.json();
@@ -84,8 +84,8 @@ const drawProducts = (products) => {
 
         clone.querySelector('img').src = `Images/${product.imageUrl}`;
         clone.querySelector('h1').textContent = product.title;
-        clone.querySelector('.price').textContent = product.price;
-        clone.querySelector('.description').textContent = product.description;
+        clone.querySelector('.price').textContent ="₪"+product.price;
+        clone.querySelector('.description').textContent = product.productName;
 
         clone.querySelector('button').addEventListener('click', () => { addProductToBasket(product) });
         counter++;
@@ -150,7 +150,7 @@ const drawCategories = (categories) => {
 const filterProducts = () => {
     minPrice = document.getElementById('minPrice').value;
     maxPrice = document.getElementById('maxPrice').value;
-    description = document.getElementById('nameSearch').value;
+    productName = document.getElementById('nameSearch').value;
 
     const opt = document.getElementsByClassName('opt');
     const optArr = Array.from(opt);

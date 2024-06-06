@@ -64,7 +64,7 @@ const login = async () => {
     if (response.ok) {
         console.log(Login.userId)
         sessionStorage.setItem("userId", JSON.stringify(Login.userId))
-        window.location.href = "homePage.html"
+        window.location.href = "Products.html"
     }
     else {
         
@@ -93,10 +93,9 @@ const updateDetaild = async () => {
     }
     else {
         if (response.ok) {
-        alert("פריטם עודכנו בהצלחה!!!")
-        window.location.href = "homePage.html"
-    }}
-    
-
+            alert("פריטם עודכנו בהצלחה!!!")
+            window.location.href = "Products.html"
+        }
+    }
 }
 

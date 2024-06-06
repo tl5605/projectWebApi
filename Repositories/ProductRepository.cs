@@ -18,12 +18,12 @@ namespace Repositories
             _context = context;
         }
 
-        public async Task<List<Product>> GetAllProducts(int? minPrice, int? maxPrice, int?[] categoryIds, string? description)
+        public async Task<List<Product>> GetAllProducts(int? minPrice, int? maxPrice, int?[] categoryIds, string? productName)
         {
             var query = _context.Products.Where(product =>
                 (minPrice == null ? (true) : (product.Price >= minPrice))
                 && (maxPrice == null ? (true) : (product.Price <= maxPrice))
-                && (description == null ? (true) : (product.Description.Contains(description)))
+                && (productName == null ? (true) : (product.ProductName.Contains(productName)))
                 && ((categoryIds.Length == 0 || categoryIds[0]== null) ? (true) : (categoryIds.Contains(product.CategoryId))))
                 .OrderBy(product => product.Price);
 

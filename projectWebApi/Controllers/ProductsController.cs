@@ -22,10 +22,10 @@ namespace projectWebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<ProductDto>>> GetAllProduct([FromQuery] int? minPrice, [FromQuery] int? maxPrice, [FromQuery] int?[] categoryIds, [FromQuery] string? description)
+        public async Task<ActionResult<List<ProductDto>>> GetAllProduct([FromQuery] int? minPrice, [FromQuery] int? maxPrice, [FromQuery] int?[] categoryIds, [FromQuery] string? productName)
         {
 
-            List<Product> product =await _productService.GetAllProducts(minPrice, maxPrice, categoryIds, description);
+            List<Product> product =await _productService.GetAllProducts(minPrice, maxPrice, categoryIds, productName);
 
             if (product == null)
                 return NotFound();
