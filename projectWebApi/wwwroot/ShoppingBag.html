@@ -30,7 +30,7 @@
 
             <td class="totalColumn delete">
                 <div class="expandoHeight" style="height: 99px;">
-                    <button onclick="removeProductFromBasket()">הסרת פריט</button>
+                    <button id="remove" onclick="removeProductFromBasket()">הסרת פריט</button>
                 </div>
             </td>
 
@@ -53,7 +53,7 @@
             <table id="items" class="items">
                 <thead>
                     <tr>
-                        <th class="imageColumn" colspan="2">פריטים</th>
+                        <th class="imageColumn">פריטים</th>
                         <th class="descriptionColumn">שם מוצר</th>
                         <th class="QuantityColumn">כמות</th>
                         <th class="PriceColumn">מחיר</th>
